@@ -62,39 +62,68 @@
     </div>
 </section>
 
-<!-- About Section -->
+<!-- About Section (New Bento Layout) -->
 <section id="about" class="about-section section-padding">
     <div class="container">
         <h2 class="section-heading text-center" data-text="About Me">About Me</h2>
 
-        <div class="about-content glass-panel reveal-on-scroll">
-            <!-- Full width text container -->
-            <div class="about-text-full">
-                <h3>Who I Am</h3>
-                <p>{{ profile.bio|linebreaks }}</p>
+        <div class="bento-grid-wrapper">
+            <!-- Col 1: Bio Card (Large) -->
+            <div class="bento-card bio-card glass-panel reveal-on-scroll">
+                <div class="bio-header">
+                    <span class="bio-subtitle">My Story</span>
+                    <h3>Who I Am</h3>
+                </div>
+                <div class="bio-body">
+                    <p>{{ profile.bio|linebreaks }}</p>
+
+                </div>
             </div>
 
-            <!-- Stats row below the text -->
-            <div class="stats-container">
-                <div class="stat-box glass-card">
-                    <i style="color: white;" class="fas fa-code"></i>
-                    <span class="stat-number">2+</span>
-                    <span class="stat-label">Years Experience</span>
+            <!-- Col 2: Stats Widgets (Grid) -->
+            <div class="stats-widget-grid">
+                <!-- Stat 1 -->
+                <div class="bento-card stat-widget reveal-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="widget-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="widget-info">
+                        <span class="widget-num">2+</span>
+                        <span class="widget-label">Years Exp.</span>
+                    </div>
                 </div>
-                <div class="stat-box glass-card">
-                    <i style="color: white;" class="fas fa-project-diagram"></i>
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Projects Completed</span>
+
+                <!-- Stat 2 -->
+                <div class="bento-card stat-widget reveal-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="widget-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="widget-info">
+                        <span class="widget-num">10+</span>
+                        <span class="widget-label">Projects</span>
+                    </div>
                 </div>
-                <div class="stat-box glass-card">
-                    <i style="color: white;" class="fas fa-smile-beam"></i>
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Happy Clients</span>
+
+                <!-- Stat 3 -->
+                <div class="bento-card stat-widget reveal-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="widget-icon">
+                        <i class="fas fa-smile-beam"></i>
+                    </div>
+                    <div class="widget-info">
+                        <span class="widget-num">5+</span>
+                        <span class="widget-label">Clients</span>
+                    </div>
                 </div>
-                <div class="stat-box glass-card">
-                    <i style="color: white;" class="fas fa-coffee"></i>
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">Cups of Coffee</span>
+
+                <!-- Stat 4 -->
+                <div class="bento-card stat-widget reveal-on-scroll" style="transition-delay: 0.4s;">
+                    <div class="widget-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="widget-info">
+                        <span class="widget-num">10+</span>
+                        <span class="widget-label">Awards Won</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,8 +229,6 @@
             </div>
             {% endfor %}
 
-            <!-- Education (Merged into timeline for cleaner look, or separate logic) -->
-            <!-- For now relying on existing loop structure but adding education could be separate -->
             {% for edu in educations %}
             <div class="timeline-item reveal-on-scroll">
                 <div class="timeline-dot edu-dot"></div>
@@ -234,7 +261,7 @@
                 </div>
                 <div class="info-item">
                     <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                    <p>New Delhi, India</p>
+                    <p>Rohtak, Haryana, India</p>
                 </div>
             </div>
 

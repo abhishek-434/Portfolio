@@ -540,78 +540,131 @@ ul {
 }
 
 /* =========================================
-   6. ABOUT SECTION (REFINED)
+   6. ABOUT SECTION (BENTO DASHBOARD STYLE)
    ========================================= */
-.about-content {
-    padding: 3rem;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border);
-}
-
-.about-text-full {
-    width: 100%;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.about-text-full h3 {
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
-.about-text-full p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Stats Container (Bottom) */
-.stats-container {
+.bento-grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    align-items: stretch;
 }
 
-.stat-box {
+.bento-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
     padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bio Card (Large) */
+.bio-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1rem;
+}
+
+.bio-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.bio-header h3 {
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5px;
+}
+
+.bio-body p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+.bio-signature {
+    font-family: 'Mrs Saint Delafield', cursive;
+    /* Assuming a cursive font or generic fallback */
+    font-size: 2.5rem;
+    color: var(--secondary);
+    opacity: 0.8;
+    transform: rotate(-5deg);
+    align-self: flex-end;
+}
+
+/* Stats Widgets (Grid) */
+.stats-widget-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-widget {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border);
-    transition: 0.3s;
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
 }
 
-.stat-box:hover {
-    background: var(--glass-bg);
-    border-color: var(--primary);
-    transform: translateY(-5px);
-}
-
-.stat-box i {
-    font-size: 2rem;
-    color: var(--secondary);
+.widget-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 243, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.2rem;
 }
 
-.stat-number {
-    font-size: 2.5rem;
+.stat-widget:nth-child(even) .widget-icon {
+    background: rgba(188, 19, 254, 0.1);
+    color: var(--secondary);
+}
+
+.widget-num {
+    font-size: 2rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
-.stat-label {
-    font-size: 0.9rem;
+.widget-label {
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .bento-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================
@@ -1416,4 +1469,78 @@ ul {
     color: #fff;
     z-index: 2;
     font-family: var(--font-mono);
+}
+
+/* =========================================
+   16. FLOATING ICON DECORATIVES
+   ========================================= */
+.floating-icon {
+    position: fixed;
+    color: rgba(255, 255, 255, 0.05);
+    /* Very subtle */
+    font-size: 4rem;
+    z-index: -1;
+    pointer-events: none;
+    animation: floatIcon 20s infinite linear;
+}
+
+.float-1 {
+    top: 15%;
+    left: 10%;
+    animation-duration: 25s;
+    font-size: 5rem;
+}
+
+.float-2 {
+    top: 60%;
+    left: 5%;
+    animation-duration: 30s;
+    animation-direction: reverse;
+}
+
+.float-3 {
+    top: 20%;
+    right: 15%;
+    animation-duration: 22s;
+    font-size: 3rem;
+}
+
+.float-4 {
+    bottom: 15%;
+    right: 10%;
+    animation-duration: 28s;
+}
+
+.float-5 {
+    bottom: 10%;
+    left: 20%;
+    animation-duration: 35s;
+    font-size: 6rem;
+    opacity: 0.03;
+}
+
+.float-6 {
+    top: 40%;
+    left: 50%;
+    animation-duration: 40s;
+    font-size: 8rem;
+    opacity: 0.02;
+}
+
+@keyframes floatIcon {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
 }
