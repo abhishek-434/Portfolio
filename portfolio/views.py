@@ -19,7 +19,7 @@ def home(request):
         return redirect('home')
 
     profile = Profile.objects.first()
-    skills = Skill.objects.all().order_by('-proficiency')
+    skills = Skill.objects.all()
     projects = Project.objects.all()
     educations = Education.objects.all().order_by('-start_date')
     experiences = Experience.objects.all().order_by('-start_date')

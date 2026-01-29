@@ -12,7 +12,6 @@ class Profile(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=50)
     icon_class = models.CharField(max_length=50, help_text="FontAwesome class e.g. fa-brands fa-python")
-    proficiency = models.IntegerField(help_text="0 to 100")
     
     def __str__(self):
         return self.name

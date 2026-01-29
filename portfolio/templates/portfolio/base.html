@@ -1,53 +1,109 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <meta name="description"
+        content="Portfolio of {{ profile.name|default:'Abhishek' }} - Python Developer & Web Designer">
+    <meta name="keywords" content="Portfolio, Python, Django, Web Development, Design">
+    <meta name="author" content="{{ profile.name|default:'Abhishek' }}">
+
+    <title>{% block title %}Portfolio | {{ profile.name|default:"Developer" }}{% endblock %}</title>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
 </head>
+
 <body>
+
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
 
     <!-- Navigation -->
     <nav class="glass-nav">
-        <div class="logo">ABHISHEK</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+                <span class="logo-text">ABHISHEK</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
     </nav>
 
+    <!-- Messages -->
     {% if messages %}
-    <div class="messages">
+    <div class="messages-container">
         {% for message in messages %}
-        <div class="alert {{ message.tags }}">{{ message }}</div>
+        <div class="alert {{ message.tags }}">
+            <i class="fas fa-info-circle"></i> {{ message }}
+        </div>
         {% endfor %}
     </div>
     {% endif %}
+
+    <!-- Global Decoratives -->
+    <div class="decor-shape shape-1"></div>
+    <div class="decor-shape shape-2"></div>
+    <div class="decor-shape shape-3"></div>
+    <div class="decor-line"></div>
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; {% now "Y" %} All Rights Reserved.</p>
+    <footer class="glass-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Abhishek</h2>
+                <p>Crafting digital experiences</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Work</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; {% now "Y" %} Abhishek. All rights reserved.</p>
+                <div class="footer-line"></div>
+                <p class="made-with">Made with <i class="fas fa-heart pulse"></i> & code</p>
+            </div>
+        </div>
     </footer>
 
     <script src="{% static 'portfolio/js/script.js' %}"></script>
 </body>
+
 </html>
